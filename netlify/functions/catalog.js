@@ -2,7 +2,7 @@ const { connectLambda, getStore } = require('@netlify/blobs');
 
 exports.handler = async (event) => {
   connectLambda(event);
-  const store = getStore({ name: 'shop-catalog', consistency: 'strong' });
+  const store = getStore('shop-catalog');
 
   const headers = {
     'Content-Type': 'application/json',
@@ -44,3 +44,4 @@ exports.handler = async (event) => {
 
   return { statusCode: 405, headers, body: 'Method not allowed' };
 };
+arreglar error de consistencia
